@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: financial-platform
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/financial-platform
+#logging:
+#  level:
+#    root: INFO
+#    org.springframework: DEBUG

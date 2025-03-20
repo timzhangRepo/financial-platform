@@ -1,5 +1,6 @@
 package com.tim.financialplatform.documents;
 
+import com.tim.financialplatform.common.UserBindEnum;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -40,7 +41,7 @@ public class UserBind {
     private String bindCode;
 
     @Schema(description = "状态")
-    private Integer status;
+    private UserBindEnum status;
 
     @Schema(description = "创建时间")
     private LocalDateTime createTime;

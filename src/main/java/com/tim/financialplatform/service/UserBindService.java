@@ -18,13 +18,11 @@ public class UserBindService {
 
         UserBind userBind = UserBind.builder()
                 .name(userBindDTO.getName())
-                .status(UserBindEnum.NO_BIND.getCode())
+                .status(UserBindEnum.NO_BIND)
                 .idCard(userBindDTO.getIdCard())
                 .mobile(userBindDTO.getMobile()).build();
 
-
-
-        mongoTemplate.save(userBindDTO);
+        mongoTemplate.save(userBind).block();
     }
 }
 

@@ -1,5 +1,6 @@
 package com.tim.financialplatform.documents;
 
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 @Document(collection = "user_binds")
 @Data
 @Schema(name = "UserBind", description = "用户绑定表")
+@Builder
 public class UserBind {
 
     @Id

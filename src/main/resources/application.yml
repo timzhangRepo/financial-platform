@@ -1,9 +1,17 @@
 spring:
   application:
     name: financial-platform
+
   data:
     mongodb:
       uri: mongodb://localhost:27017/financial-platform
+
+  kafka:
+    bootstrap-servers: localhost:9092  # ? Kafka port here
+
+server:
+  port: 8085  # ? Custom Spring Boot app port
+
 #logging:
 #  level:
 #    root: INFO

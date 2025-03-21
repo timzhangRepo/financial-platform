@@ -12,5 +12,4 @@ public class ReactiveMongoConfig {
     public ReactiveMongoTemplate reactiveMongoTemplate(MongoClient mongoClient) {
         return new ReactiveMongoTemplate(mongoClient, "financial-platform");
     }
-
 }

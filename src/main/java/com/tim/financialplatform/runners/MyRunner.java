@@ -31,6 +31,14 @@ public class MyRunner <T> implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        onBoardUserProducer.send(new User);
+        UserBindDTO userBindDTO = UserBindDTO.builder()
+                .name("小花")
+                .mobile("18110272309")
+                .idCard("4106111999231")
+                .build();
+
+
+
+        onBoardUserProducer.send(userBindDTO.toString());
     }
 }

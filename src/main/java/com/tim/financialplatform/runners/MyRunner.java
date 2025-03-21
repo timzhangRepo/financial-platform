@@ -6,6 +6,7 @@ import com.tim.financialplatform.controller.UserBindController;
 import com.tim.financialplatform.documents.User;
 import com.tim.financialplatform.documents.UserBind;
 import com.tim.financialplatform.dto.UserBindDTO;
+import com.tim.financialplatform.kafka.producer.OnBoardUserProducer;
 import com.tim.financialplatform.service.UserBindService;
 import com.tim.financialplatform.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -26,10 +27,10 @@ public class MyRunner <T> implements CommandLineRunner {
 
 
     @Autowired
-    UserBindController controller;
+    OnBoardUserProducer onBoardUserProducer;
 
     @Override
     public void run(String... args) throws Exception {
-        controller.bindUser(UserBindDTO.builder().id("123").name("小金鱼").mobile("12312").build());
+        onBoardUserProducer.send(new User);
     }
 }

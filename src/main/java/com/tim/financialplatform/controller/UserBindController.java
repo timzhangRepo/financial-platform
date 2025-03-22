@@ -19,7 +19,6 @@ public class UserBindController {
     @PostMapping("/user")
     public void bindUser(UserBindDTO userBindDTO) {
         //filter request..
-        // access issue resolving stuf
         userBindService.commitUserBind(userBindDTO);
     }
 }

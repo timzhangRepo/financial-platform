@@ -5,6 +5,7 @@ import com.tim.financialplatform.common.ResponseObject;
 import com.tim.financialplatform.controller.UserBindController;
 import com.tim.financialplatform.documents.User;
 import com.tim.financialplatform.documents.UserBind;
+import com.tim.financialplatform.dto.CommonKafkaMessage;
 import com.tim.financialplatform.dto.UserBindDTO;
 import com.tim.financialplatform.kafka.producer.OnBoardUserProducer;
 import com.tim.financialplatform.service.UserBindService;
@@ -37,8 +38,11 @@ public class MyRunner <T> implements CommandLineRunner {
                 .idCard("4106111999231")
                 .build();
 
+        CommonKafkaMessage msg = CommonKafkaMessage.builder()
+                        .type("UserBind")
+                                .payload(userBindDTO).build();
 
 
-        onBoardUserProducer.send(userBindDTO.toString());
+        onBoardUserProducer.send(userBindDTO);
     }
 }

@@ -32,7 +32,7 @@ public class MyRunner <T> implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        UserBindDTO userBindDTO = new UserBindDTO("小花", "18110272309", "4106111999231", "12312321312");
+        UserBindDTO userBindDTO = new UserBindDTO("小花", "18110272309", "4106111999231", "12312321312", 0);
         CommonKafkaMessage msg = CommonKafkaMessage.builder()
                         .type("UserBind")
                                 .payload(userBindDTO).build();

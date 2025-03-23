@@ -13,4 +13,5 @@ public class UserBindDTO {
     String name;
     String idCard;
     String mobile;
+    Integer version;
 }

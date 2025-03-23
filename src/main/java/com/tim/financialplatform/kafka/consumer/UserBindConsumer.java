@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class UserBindConsumer {
-    @KafkaListener(topics = "onboard", groupId = "financial-platform")
-    public void consume(Object object) {
-        log.info("Consumer received: {}", object);
+    @KafkaListener(topics = "onboard", groupId = "financial-platform", containerFactory = "kafkaListenerContainerFactory")
+    public void consume(UserBindDTO userBindDTO) {
+        log.info("Consumer received: {}", userBindDTO);
     }
 }

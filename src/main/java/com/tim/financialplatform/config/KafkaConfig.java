@@ -41,16 +41,22 @@ public class KafkaConfig {
     @Bean
     public ConsumerFactory<String, UserBindDTO> consumerFactory() {
         Map<String, Object> config = new HashMap<>();
-        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092"); // or inject via @Value
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, "financial-platform");
+        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        config.put(ConsumerConfig.GROUP_ID_CONFIG, "my-group");
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        config.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
-        config.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, true);
-
-        return new DefaultKafkaConsumerFactory<>(config,
-                new StringDeserializer(),
+        config.put(JsonDeserializer.TRUSTED_PACKAGES, "*"); // or your package name
+        return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
                 new JsonDeserializer<>(UserBindDTO.class));
+    }
+
+
+    @Bean
+    public ConcurrentKafkaListenerContainerFactory<String, UserBindDTO> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, UserBindDTO> factory =
+                new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(consumerFactory());
+        return factory;
     }
 
     @Bean

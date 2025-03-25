@@ -18,7 +18,7 @@ public class UserBindService {
 
         UserBind userBind = UserBind.builder()
                 .name(userBindDTO.getName())
-                .status(UserBindEnum.NO_BIND)
+                .status(UserBindEnum.BINDED)
                 .idCard(userBindDTO.getIdCard())
                 .mobile(userBindDTO.getMobile()).build();
 

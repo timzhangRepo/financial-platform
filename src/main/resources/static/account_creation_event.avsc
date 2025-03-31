@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "AccountCreationEventAvro",
+  "namespace": "com.tim.financialplatform.onboardEvent",
+  "fields": [
+    { "name": "id", "type": "string" },
+    { "name": "userType", "type": "int" },
+    { "name": "mobile", "type": "string" },
+    { "name": "password", "type": "string" },
+    { "name": "nickName", "type": "string" },
+    { "name": "name", "type": "string" },
+    { "name": "idCard", "type": "string" },
+    { "name": "email", "type": "string" }
+  ]
+}

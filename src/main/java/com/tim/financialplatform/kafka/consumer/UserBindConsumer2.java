@@ -10,21 +10,20 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class UserBindConsumer {
+public class UserBindConsumer2 {
 
     @Autowired
     UserBindService userBindService;
 
     @KafkaListener(
             topics = "onboard",
-            groupId = "financial-platform",
+            groupId = "financial-platform-2",
             containerFactory = "kafkaListenerContainerFactory" // 👈 add this
     )    public void consume(GenericRecord record) {
 
 
-        log.info("Received record from consumer 1: {}", record.getSchema().getName());
-        log.info("Received record from consumer 1 id : {}", record.get("id"));
-
+        log.info("Received record from consumer 2: {}", record.getSchema().getName());
+        log.info("Received record from consumer 2 id : {}", record.get("id"));
 
 //        UserBindDTO userBindDTO = new UserBindDTO(
 //                record.get("id").toString(),

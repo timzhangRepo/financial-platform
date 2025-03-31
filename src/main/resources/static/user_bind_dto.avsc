@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "name": "UserBindDTOAvro",
+  "namespace": "com.tim.financialplatform.avro",
+  "fields": [
+    { "name": "id", "type": "string" },
+    { "name": "name", "type": "string" },
+    { "name": "idCard", "type": "string" },
+    { "name": "mobile", "type": "string" },
+    { "name": "version", "type": ["null", "int"], "default": null }
+  ]
+}
